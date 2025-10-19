@@ -1,11 +1,10 @@
 # DRAGON_EYE_termux
 CLI location tracking software for termux. Lightweight and fast.
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/500b69d0-9be4-46ee-b527-4878419a6ee0" alt="DRAGON_EYE Logo" width="500"/>
+  <img src="https://github.com/user-attachments/assets/88876c31-f5a5-41ad-b2e4-87a89ce14e83" alt="DRAGON_EYE Logo" width="500"/>
   <br>
   <em>CLI location tracking software for termux. Lightweight and fast.</em>
 </p>
-
 Lightweight threaded HTTP server for logging client data and geolocation.  
 Designed for Termux / Linux.
 
