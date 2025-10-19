@@ -40,8 +40,7 @@ python3 server.py
 
 ---
 
-
-  # Created by
+# Created by
 ### ***INDIAN CYBER ARMY***
 #### ***YT CHANNEL: [INDIAN CYBER ARMY](https://www.youtube.com/@webdragon63)***
-```
+
